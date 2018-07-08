@@ -47,7 +47,7 @@
                             <div class="col-sm-2">
                                 <select class="form-control select2" id="requestMethod">
                                 <#list RequestMethodEnum as item>
-                                    <option value="${item}" <#if testHistory?exists && testHistory.requestMethod==item>selected</#if> >${item}</option>
+                                    <option value="${item}"  kk="123${document.requestMethod}" <#if document?exists && document.requestMethod==item.name()>selected = "selected"</#if> >${item}</option>
                                 </#list>
                                 </select>
                             </div>
@@ -64,7 +64,7 @@
                                     </#if>
                                     <#if project.baseUrlQa?exists && project.baseUrlQa!="" >
                                         <option value="${project.baseUrlQa}${document.requestUrl}"
-                                            <#if testHistory?exists && testHistory.requestUrl == (project.baseUrlQa + document.requestUrl)>selected</#if> >测试环境</option>
+                                            <#if testHistory?exists && testHistory.requestUrl == (project.baseUrlQa + document.requestUrl)>selected</#if> >live站环境</option>
                                     </#if>
                                     </select>
                                 </div>

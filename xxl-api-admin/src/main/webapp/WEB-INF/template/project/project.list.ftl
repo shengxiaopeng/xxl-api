@@ -122,8 +122,8 @@
                         <div class="col-sm-8"><input type="text" class="form-control" name="baseUrlPpe" placeholder="请输入根地址(预发布)" maxlength="200" ></div>
                     </div>
                     <div class="form-group">
-                        <label for="lastname" class="col-sm-4 control-label">根地址(测试)<font color="black">*</font></label>
-                        <div class="col-sm-8"><input type="text" class="form-control" name="baseUrlQa" placeholder="请输入根地址(测试)" maxlength="200" ></div>
+                        <label for="lastname" class="col-sm-4 control-label">根地址(live站)<font color="black">*</font></label>
+                        <div class="col-sm-8"><input type="text" class="form-control" name="baseUrlQa" placeholder="请输入根地址(live站)" maxlength="200" ></div>
                     </div>
 
 					<div class="form-group">
