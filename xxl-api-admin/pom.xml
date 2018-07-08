@@ -10,6 +10,19 @@
 	<packaging>war</packaging>
 
 	<dependencies>
+
+		<dependency>
+			<groupId>com.douyu.ocean</groupId>
+			<artifactId>api-common</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.47</version>
+		</dependency>
+
 		<!-- springframe start -->
 		<dependency>
 			<groupId>org.springframework</groupId>

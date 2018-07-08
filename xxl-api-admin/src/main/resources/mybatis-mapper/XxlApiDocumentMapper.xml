@@ -112,6 +112,21 @@
 
 	</update>
 
+	<update id="updateByDetect" parameterType="com.xxl.api.admin.core.model.XxlApiDocument" >
+		UPDATE xxl_api_document
+		SET
+			`request_url` = #{requestUrl},
+			`request_method` = #{requestMethod},
+			`request_headers` = #{requestHeaders},
+			`query_params` = #{queryParams},
+			`success_resp_type` = #{successRespType},
+			`fail_resp_type` = #{failRespType},
+			`update_time` = NOW()
+		WHERE `id` = #{id}
+
+	</update>
+
+
 	<delete id="delete" parameterType="java.lang.Integer" >
 		DELETE FROM xxl_api_document
 		WHERE id = #{id}
@@ -123,6 +138,12 @@
 		WHERE t.id = #{id}
 	</select>
 
+	<select id="getUnique" parameterType="com.xxl.api.admin.core.model.XxlApiDocument" resultMap="XxlApiDocument">
+		SELECT <include refid="Base_Column_List" />
+		FROM xxl_api_document AS t
+		WHERE t.request_url = #{requestUrl} and t.project_id=#{projectId}
+		limit 1
+	</select>
 
 	<select id="loadAll" parameterType="java.util.Map" resultMap="XxlApiDocument">
 		SELECT <include refid="Base_Column_List" />

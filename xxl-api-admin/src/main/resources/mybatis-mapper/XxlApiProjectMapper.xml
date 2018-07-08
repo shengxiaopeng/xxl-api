@@ -64,6 +64,12 @@
 		WHERE t.id = #{id}
 	</select>
 
+	<select id="getUnique" parameterType="com.xxl.api.admin.core.model.XxlApiProject" resultMap="XxlApiProject">
+		SELECT <include refid="Base_Column_List" />
+		FROM xxl_api_project AS t
+		WHERE t.name = #{name}
+		limit 1
+	</select>
 
 	<select id="pageList" parameterType="java.util.Map" resultMap="XxlApiProject">
 		SELECT <include refid="Base_Column_List" />

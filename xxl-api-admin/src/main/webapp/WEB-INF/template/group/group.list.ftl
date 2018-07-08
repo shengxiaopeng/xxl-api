@@ -91,6 +91,8 @@
                                     |
                                 </#if>
                                 <button class="btn btn-info btn-xs" type="button" onclick="javascript:window.open('${request.contextPath}/document/addPage?projectId=${projectId}&groupId=${groupId}')" >+新增接口</button>
+                                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                                <button class="btn btn-info btn-xs" type="button" id="syncApi"  _projectId="${projectId}" >+同步接口</button>
                                 &nbsp;&nbsp;
                             </#if>
 
@@ -136,7 +138,7 @@
                                                         <#elseif document.status==1><i class="fa fa-circle-o text-yellow"></i>
                                                         <#else><i class="fa fa-circle-o text-light-gray"></i></#if>
                                                         <a href="${request.contextPath}/document/detailPage?id=${document.id}" >
-                                                            <#if document.name?length gt 12>${document.name?substring(0, 12)}<#else>${document.name}</#if>
+                                                            <#if document.name?length gt 12>${document.name}<#else>${document.name}</#if>
                                                         </a>
                                                     </td>
                                                     <td class="mailbox-date">

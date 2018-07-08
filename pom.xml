@@ -8,6 +8,8 @@
 
 	<modules>
 		<module>xxl-api-admin</module>
+		<module>api-common</module>
+		<module>api-collect-starter</module>
 	</modules>
 
 	<properties>

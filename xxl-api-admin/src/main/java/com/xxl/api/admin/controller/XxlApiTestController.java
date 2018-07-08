@@ -12,6 +12,7 @@ import com.xxl.api.admin.dao.IXxlApiTestHistoryDao;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.collections4.MapUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.text.StrSubstitutor;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -65,7 +66,7 @@ public class XxlApiTestController {
 
 
 		// params
-		XxlApiDocument document = document = xxlApiDocumentDao.load(documentId);
+		XxlApiDocument document  = xxlApiDocumentDao.load(documentId);
 		if (document == null) {
 			throw new RuntimeException("接口ID非法");
 		}
@@ -161,6 +162,13 @@ public class XxlApiTestController {
 			for (Map<String, String> item: queryParams) {
 				queryParamMap.put(item.get("key"), item.get("value"));
 			}
+		}
+
+		//支持path-variable
+		if(xxlApiTestHistory.getRequestUrl().contains("{")){
+			String s = xxlApiTestHistory.getRequestUrl().replace("{", "${");
+			String replace = new StrSubstitutor(queryParamMap).replace(s);
+			xxlApiTestHistory.setRequestUrl(replace);
 		}
 
 		// invoke 1/3

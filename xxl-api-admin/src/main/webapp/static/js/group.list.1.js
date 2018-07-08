@@ -291,5 +291,36 @@ $(function() {
 
 	});
 
+    $('#syncApi').click(function () {
+        var projectId = $(this).attr("_projectId");
+        $.get('/detect/all',{projectId:projectId},function (data) {
+
+            if (data.code == "200") {
+
+                var add = data.content.add;
+                var update = data.content.update;
+                var project = data.content.project;
+
+                var msg=project+"项目同步接口成功，新增接口"+add+"个，修改接口"+update+"个";
+
+                $('#addGroupModal').modal('hide');
+                layer.open({
+                    icon: '1',
+                    content: msg ,
+                    end: function(layero, index){
+                        window.location.reload();
+                    }
+                });
+            } else {
+                layer.open({
+                    icon: '2',
+                    content: (data.msg||'刷新接口失败')
+                });
+            }
+
+        });
+    });
+
+
 
 });

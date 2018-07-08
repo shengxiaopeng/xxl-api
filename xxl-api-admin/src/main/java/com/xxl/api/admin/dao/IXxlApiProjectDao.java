@@ -17,6 +17,9 @@ public interface IXxlApiProjectDao {
     public int delete(@Param("id") int id);
 
     public XxlApiProject load(@Param("id") int id);
+
+    public XxlApiProject getUnique(XxlApiProject project);
+
     public List<XxlApiProject> pageList(@Param("offset") int offset,
                                         @Param("pagesize") int pagesize,
                                         @Param("name") String name,
