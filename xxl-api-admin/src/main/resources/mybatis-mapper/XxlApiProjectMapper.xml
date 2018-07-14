@@ -64,6 +64,11 @@
 		WHERE t.id = #{id}
 	</select>
 
+	<select id="loadAll"  resultMap="XxlApiProject">
+		SELECT <include refid="Base_Column_List" />
+		FROM xxl_api_project AS t
+	</select>
+
 	<select id="getUnique" parameterType="com.xxl.api.admin.core.model.XxlApiProject" resultMap="XxlApiProject">
 		SELECT <include refid="Base_Column_List" />
 		FROM xxl_api_project AS t
@@ -98,6 +103,12 @@
 			</if>
 		</trim>
 	</select>
+
+	<select id="count"  resultType="int">
+		SELECT count(1)
+		FROM xxl_api_project AS t
+	</select>
+
 
 
 </mapper>

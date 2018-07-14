@@ -16,6 +16,8 @@ public interface IXxlApiProjectDao {
     public int update(XxlApiProject xxlApiProject);
     public int delete(@Param("id") int id);
 
+    public List<XxlApiProject> loadAll();
+
     public XxlApiProject load(@Param("id") int id);
 
     public XxlApiProject getUnique(XxlApiProject project);
@@ -29,4 +31,5 @@ public interface IXxlApiProjectDao {
                              @Param("name") String name,
                              @Param("bizId") int bizId);
 
+    public int count();
 }

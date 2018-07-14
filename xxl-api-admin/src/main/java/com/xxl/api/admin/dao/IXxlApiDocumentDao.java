@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by xuxueli on 17/3/31.
@@ -28,5 +29,15 @@ public interface IXxlApiDocumentDao {
     public List<XxlApiDocument> loadByGroupId(@Param("groupId") int groupId);
 
     List<XxlApiDocument> findByResponseDataTypeId(@Param("responseDatatypeId") int responseDatatypeId);
+
+    public int count();
+
+    public int countOperator();
+
+    public List<String> allOperator();
+
+    public List<Map<String,Object>> getProjectStatsByOperator(String operator);
+
+    public List<Map<String,Object>> getUserStatsByProjectId(int projectId);
 
 }

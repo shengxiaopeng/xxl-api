@@ -167,4 +167,37 @@
 		WHERE t.response_datatype_id = #{responseDatatypeId}
 	</select>
 
+	<select id="count"  resultType="int">
+		SELECT count(1)
+		FROM xxl_api_document AS t
+	</select>
+
+	<select id="allOperator"  resultType="java.lang.String">
+		SELECT DISTINCT operator
+		FROM xxl_api_document AS t
+	</select>
+
+	<select id="countOperator"  resultType="int">
+		SELECT count(DISTINCT operator)
+		FROM xxl_api_document AS t
+	</select>
+
+	<select id="getUserStatsByProjectId" parameterType="java.lang.Integer"  resultType="java.util.HashMap">
+		SELECT operator, count(*) as count
+		FROM xxl_api_document AS t
+		WHERE
+		    project_id=#{protjectId}
+		GROUP BY
+		    operator
+	</select>
+
+	<select id="getProjectStatsByOperator"  parameterType="java.lang.String" resultType="java.util.HashMap" >
+		SELECT project_id as projectId, count(*) as count
+		FROM xxl_api_document AS t
+		WHERE
+		operator=#{operator}
+		GROUP BY
+		project_id
+	</select>
+
 </mapper>
